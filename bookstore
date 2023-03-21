@@ -1,0 +1,37 @@
+
+
+
+
+
+@startuml
+title Online Bookstore System
+
+actor User
+actor Administrator
+participant Store
+participant Book
+participant ShoppingCart
+participant Payment
+
+
+====Admin====
+Administrator -> Store: Browse books
+Administrator -> Store: Add book
+Administrator -> Store: Remove book
+====User====
+User -> Store: Browse books
+User -> ShoppingCart: Add book
+User -> ShoppingCart: Proceed to checkout
+User -> Payment: Complete purchase
+
+Store -> Book: Retrieve book information
+Store -> ShoppingCart: Add book
+Store -> ShoppingCart: Remove book
+
+ShoppingCart -> Store: Retrieve cart information
+ShoppingCart -> Payment: Process payment
+
+Payment -> Store: Verify payment
+Payment -> User: Confirmation
+@enduml 
+
